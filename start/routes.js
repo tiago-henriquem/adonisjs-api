@@ -19,3 +19,7 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 Route.post('/register', 'AuthController.register')
+/* Rota de login usando o controller Auth e acessando a função 'authenticate' */
+Route.post('/login', 'AuthController.authenticate');
+/* Rota home feita para testes do metodo middleware */
+Route.get('/home', 'AppController.index').middleware(['auth:jwt']);
